@@ -1,13 +1,13 @@
 import "./App.css";
-import { useProducts } from "./hooks/useProducts";
+//import { useProducts } from "./hooks/useProducts";
 import Navbar from "./components/Navbar";
 import Info from "./components/Info";
 import ProductCard from "./components/ProductCard";
 import burger2 from "./asset/burger2.png";
 
 function App() {
-	const { error, loading, data } = useProducts();
-	console.log(data);
+	//const { error, loading, data } = useProducts();
+	//console.log(data);
 	return (
 		<div>
 			<Navbar />
