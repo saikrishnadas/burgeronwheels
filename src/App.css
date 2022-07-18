@@ -1,0 +1,57 @@
+.black-box {
+	position: absolute;
+	width: 455px;
+	height: 476px;
+	left: 0px;
+	top: 0px;
+	background: #000000;
+	border-radius: 0px 0px 30px 0px;
+	z-index: -1;
+}
+
+.truck-image {
+	position: absolute;
+	width: 712px;
+	height: 482px;
+	left: 10px;
+	top: 28px;
+
+	background: url("../public/foodvan.svg");
+}
+
+.headings {
+	text-align: center;
+	margin-top: 5%;
+}
+
+.products-container {
+	padding-top: 2%;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+/* .footer-box-container {
+	width: 565px;
+	height: 420px;
+	background-color: red;
+	display: flex;
+	justify-content: flex-end;
+} */
+
+/* .footer-triangle {
+	width: 46px;
+	height: 46px;
+	background: #000000;
+	transform: rotate(-50deg);
+	margin-top: 30%;
+} */
+
+.footer-box {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 465px;
+	height: 420px;
+	background: #000000;
+	border-radius: 20px 0px 0px 20px;
+}
