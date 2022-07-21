@@ -1,14 +1,14 @@
 import "../styles/ProductCard.css";
 import burger from "../asset/burger.png";
 
-const ProductCard = () => {
+const ProductCard = ({ name, description, price, image }) => {
 	return (
 		<div className="product-card-container">
 			<div className="product-card-image-box">
 				<img className="product-image" src={burger} alt="burger" />
 			</div>
 			<div className="title">
-				<p>Regular Chicken Burger</p>
+				<p>{name}</p>
 			</div>
 			<div className="description">
 				<p>
@@ -17,7 +17,7 @@ const ProductCard = () => {
 				</p>
 			</div>
 			<div className="product-card-footer">
-				<div style={{ fontWeight: "bold", color: "#16c313" }}>$42</div>
+				<div style={{ fontWeight: "bold", color: "#16c313" }}>${price}</div>
 				<div className="order-button">Order</div>
 			</div>
 		</div>

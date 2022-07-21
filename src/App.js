@@ -7,7 +7,7 @@ import burger2 from "./asset/burger2.png";
 
 function App() {
 	const { error, loading, data } = useProducts();
-	console.log(data);
+	// console.log(data);
 	return (
 		<div>
 			<Navbar />
@@ -29,10 +29,20 @@ function App() {
 			</div>
 			<div>
 				<div className="products-container">
+					{data.products.slice(0, 4).map((product, index) => (
+						<div key={index}>
+							<ProductCard
+								name={product.name}
+								description={product.description}
+								price={product.price}
+								image={product.image}
+							/>
+						</div>
+					))}
+					{/* <ProductCard />
 					<ProductCard />
 					<ProductCard />
-					<ProductCard />
-					<ProductCard />
+					<ProductCard /> */}
 				</div>
 				<p
 					style={{
