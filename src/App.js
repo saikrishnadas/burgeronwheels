@@ -29,7 +29,7 @@ function App() {
 			</div>
 			<div>
 				<div className="products-container">
-					{data.products.slice(0, 4).map((product, index) => (
+					{/* {data.products.slice(0, 4).map((product, index) => (
 						<div key={index}>
 							<ProductCard
 								name={product.name}
@@ -38,11 +38,11 @@ function App() {
 								image={product.image}
 							/>
 						</div>
-					))}
-					{/* <ProductCard />
+					))} */}
 					<ProductCard />
 					<ProductCard />
-					<ProductCard /> */}
+					<ProductCard />
+					<ProductCard />
 				</div>
 				<p
 					style={{
