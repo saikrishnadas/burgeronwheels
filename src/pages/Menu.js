@@ -1,27 +1,31 @@
 import Navbar from "../components/Navbar";
 import "../styles/Menu.css";
 import ProductCard from "../components/ProductCard";
-
+import { useProducts } from "../hooks/useProducts";
 
 const Menu = () => {
-	return (<div>
-		<Navbar></Navbar>
-		<div className="section"><h1>Taste The Best</h1>
-		<p>Fresh and authentic burgers</p></div>
-		<div className="container">
-		<ProductCard />
-					<ProductCard />
-					<ProductCard />
-					<ProductCard />
-					<ProductCard />
-					<ProductCard />
-					<ProductCard />
-					<ProductCard />
+	const { error, loading, data } = useProducts();
+	console.log("data", data);
+	return (
+		<div>
+			<Navbar></Navbar>
+			<div className="section">
+				<h1>Taste The Best</h1>
+				<p>Fresh and authentic burgers</p>
+			</div>
+			<div className="container">
+				{data?.products.map((product) => (
+					<span key={product.id}>
+						<ProductCard
+							name={product.name}
+							description={product.description}
+							price={product.price}
+							image={product.image}
+						/>
+					</span>
+				))}
+			</div>
 		</div>
-		</div>
-
-
-
-	)
+	);
 };
 export default Menu;
