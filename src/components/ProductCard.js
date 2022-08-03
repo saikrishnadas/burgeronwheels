@@ -8,7 +8,7 @@ const ProductCard = ({ name, description, price, image }) => {
 				<img className="product-image" src={burger} alt="burger" />
 			</div>
 			<div className="title">
-				<p>{name}</p>
+				<p>Chicken Burger</p>
 			</div>
 			<div className="description">
 				<p>
@@ -17,7 +17,7 @@ const ProductCard = ({ name, description, price, image }) => {
 				</p>
 			</div>
 			<div className="product-card-footer">
-				<div style={{ fontWeight: "bold", color: "#16c313" }}>${price}</div>
+				<div style={{ fontWeight: "bold", color: "#16c313" }}>$21</div>
 				<div className="order-button">Order</div>
 			</div>
 		</div>

@@ -10,7 +10,7 @@ import Add from "./pages/Add";
 import Description from "./pages/Description";
 
 const client = new ApolloClient({
-	uri: "http://localhost:4000/",
+	uri: "https://burgeronwheels-backend.herokuapp.com/",
 	cache: new InMemoryCache(),
 });
 
