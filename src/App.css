@@ -1,3 +1,7 @@
+body {
+	font-family: "Poppins", sans-serif;
+}
+
 .black-box {
 	position: absolute;
 	width: 455px;

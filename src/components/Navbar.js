@@ -15,8 +15,13 @@ const Navbar = () => {
 
 				<p className="nav-items">Contact Us</p>
 			</div>
-			<div className="cart-button">
-				<p style={{ textAlign: "center" }}>Cart</p>
+			<div style={{ display: "flex" }}>
+				<div className="cart-button" style={{ marginRight: "20px" }}>
+					<p style={{ textAlign: "center" }}>Login</p>
+				</div>
+				<div className="cart-button">
+					<p style={{ textAlign: "center" }}>Cart</p>
+				</div>
 			</div>
 		</nav>
 	);
