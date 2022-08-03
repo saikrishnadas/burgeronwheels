@@ -1,5 +1,6 @@
 .product-page-container {
 	height: 100vh;
+	/* background-color: pink; */
 }
 
 .product-page-box {
@@ -8,6 +9,7 @@
 	height: 100%;
 	background-color: #000000;
 	border-radius: 0px 20px 0px 0px;
+
 }
 
 .product-image {
