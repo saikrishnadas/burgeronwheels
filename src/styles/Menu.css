@@ -1,0 +1,23 @@
+.section{
+    text-align: center;
+	 /* margin-top: 5%;  */
+}
+
+.product{
+    width: 290px;
+    height: 290px;
+    left: 300px;
+    top: 306px;
+        background: #000000;
+    border-radius: 20px;}
+
+    .container{
+        display: grid;
+        /* justify-content: space-evenly;
+        flex-wrap: wrap;
+        margin-top: 10px;
+        align-items: stretch;*/
+        margin: 40px  10px;
+        grid-template-columns: auto auto auto auto;
+        row-gap: 40px;
+    } 
