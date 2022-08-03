@@ -8,6 +8,7 @@ import burger2 from "./asset/burger2.png";
 function App() {
 	const { error, loading, data } = useProducts();
 	console.log("data", data);
+	//console.log(data);
 	return (
 		<div>
 			<Navbar />
