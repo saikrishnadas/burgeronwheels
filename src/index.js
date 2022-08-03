@@ -8,7 +8,7 @@ import { Routes, Route } from "react-router-dom";
 import Menu from "./pages/Menu";
 
 const client = new ApolloClient({
-	uri: "http://localhost:4000/",
+	uri: "https://burgeronwheels-backend.herokuapp.com/",
 	cache: new InMemoryCache(),
 });
 
