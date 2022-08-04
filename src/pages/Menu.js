@@ -13,18 +13,23 @@ const Menu = () => {
 				<h1>Taste The Best</h1>
 				<p>Fresh and authentic burgers</p>
 			</div>
-			<div className="container">
-				{data?.products.map((product) => (
-					<span key={product.id}>
-						<ProductCard
-							name={product.name}
-							description={product.description}
-							price={product.price}
-							image={product.image}
-						/>
-					</span>
-				))}
-			</div>
+			{loading ? (
+				<p>Loading....</p>
+			) : (
+				<div className="container">
+					{data?.products.map((product) => (
+						<span key={product.id}>
+							<ProductCard
+								id={product.id}
+								name={product.name}
+								description={product.description}
+								price={product.price}
+								image={product.image}
+							/>
+						</span>
+					))}
+				</div>
+			)}
 		</div>
 	);
 };

@@ -2,7 +2,7 @@ import "../styles/ProductCard.css";
 import burger from "../asset/burger.png";
 import { Link } from "react-router-dom";
 
-const ProductCard = ({ id, name, description, price, image }) => {
+const ProductCardHomepage = ({ id, name, description, price, image }) => {
 	return (
 		<div className="product-card-container">
 			<div className="product-card-image-box">
@@ -30,4 +30,4 @@ const ProductCard = ({ id, name, description, price, image }) => {
 	);
 };
 
-export default ProductCard;
+export default ProductCardHomepage;
