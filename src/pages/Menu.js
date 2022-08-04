@@ -2,6 +2,7 @@ import Navbar from "../components/Navbar";
 import "../styles/Menu.css";
 import ProductCard from "../components/ProductCard";
 import { useProducts } from "../hooks/useProducts";
+import { Link } from "react-router-dom";
 
 const Menu = () => {
 	const { error, loading, data } = useProducts();
@@ -16,12 +17,17 @@ const Menu = () => {
 			<div className="container">
 				{data?.products.map((product) => (
 					<span key={product.id}>
-						<ProductCard
-							name={product.name}
-							description={product.description}
-							price={product.price}
-							image={product.image}
-						/>
+						<Link
+							to={`/${product.id}`}
+							style={{ color: "inherit", textDecoration: "inherit" }}
+						>
+							<ProductCard
+								name={product.name}
+								description={product.description}
+								price={product.price}
+								image={product.image}
+							/>
+						</Link>
 					</span>
 				))}
 			</div>

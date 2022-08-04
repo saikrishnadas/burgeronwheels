@@ -22,7 +22,7 @@ root.render(
 				<Route path="/" element={<App />} />
 				<Route path="menu" element={<Menu />} />
 				<Route path="add" element={<Add />} />
-				<Route path="description" element={<Description />} />
+				<Route path="/:id" element={<Description />} />
 			</Routes>
 		</ApolloProvider>
 	</BrowserRouter>
