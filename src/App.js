@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Info from "./components/Info";
 import ProductCard from "./components/ProductCard";
 import burger2 from "./asset/burger2.png";
+import ProductCardHomepage from "./components/ProductCardHomepage";
 
 function App() {
 	const { error, loading, data } = useProducts();
@@ -40,10 +41,10 @@ function App() {
 							/>
 						</div>
 					))} */}
-					<ProductCard />
-					<ProductCard />
-					<ProductCard />
-					<ProductCard />
+					<ProductCardHomepage name={"Regular Chicken Burger"} price={3} />
+					<ProductCardHomepage name={"Chicken Whopper"} price={4.2} />
+					<ProductCardHomepage name={"Crispy Chicken Burger"} price={3.12} />
+					<ProductCardHomepage name={"Veg Whopper"} price={2.42} />
 				</div>
 				<p
 					style={{
