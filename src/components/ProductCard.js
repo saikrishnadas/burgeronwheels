@@ -1,7 +1,8 @@
 import "../styles/ProductCard.css";
 import burger from "../asset/burger.png";
+import { Link } from "react-router-dom";
 
-const ProductCard = ({ name, description, price, image }) => {
+const ProductCard = ({ id, name, description, price, image }) => {
 	return (
 		<div className="product-card-container">
 			<div className="product-card-image-box">
@@ -18,7 +19,12 @@ const ProductCard = ({ name, description, price, image }) => {
 			</div>
 			<div className="product-card-footer">
 				<div style={{ fontWeight: "bold", color: "#16c313" }}>${price}</div>
-				<div className="order-button">Order</div>
+				<Link
+					to={`/${id}`}
+					style={{ color: "inherit", textDecoration: "inherit" }}
+				>
+					<div className="order-button">Order</div>
+				</Link>
 			</div>
 		</div>
 	);

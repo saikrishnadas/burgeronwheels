@@ -17,17 +17,13 @@ const Menu = () => {
 			<div className="container">
 				{data?.products.map((product) => (
 					<span key={product.id}>
-						<Link
-							to={`/${product.id}`}
-							style={{ color: "inherit", textDecoration: "inherit" }}
-						>
-							<ProductCard
-								name={product.name}
-								description={product.description}
-								price={product.price}
-								image={product.image}
-							/>
-						</Link>
+						<ProductCard
+							id={product.id}
+							name={product.name}
+							description={product.description}
+							price={product.price}
+							image={product.image}
+						/>
 					</span>
 				))}
 			</div>
