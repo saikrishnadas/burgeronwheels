@@ -1,7 +1,30 @@
 import { Button, Checkbox, Form, Input } from "antd";
 import TextBox from "../../components/TextBox";
+import { useState, useEffect } from "react";
+
 const { TextArea } = Input;
 function ProductForm() {
+	const [ingredient, setIngredient] = useState("");
+	const [ingredients, setIngredients] = useState(["ground chicken", "bbq"]);
+	const [addons, setAddons] = useState(["onion", "tomato"]);
+	const [addon, setAddon] = useState("");
+
+	const deleteIngredientsItem = (index) => {
+		const item = ingredients[index];
+		let newIngredients = ingredients.filter((product) => {
+			return product !== item;
+		});
+		setIngredients(newIngredients);
+	};
+
+	const deleteAddonsItem = (index) => {
+		const item = addons[index];
+		let newAddons = addons.filter((product) => {
+			return product !== item;
+		});
+		setAddons(newAddons);
+	};
+
 	return (
 		<Form
 			labelCol={{
@@ -103,24 +126,24 @@ function ProductForm() {
 			>
 				<Input placeholder="Duration" />
 			</Form.Item>
-			<Form.Item
-				label="Duration"
-				name="duration"
-				rules={[
-					{
-						required: true,
-						message: "Please enter the duration!",
-					},
-				]}
-			>
-				<Input placeholder="Duration" />
-			</Form.Item>
 
 			<div style={{ marginLeft: "22%" }}>
 				<span style={{ display: "flex", alignItems: "center" }}>
 					<p>Ingredients: </p>
-					<span style={{ marginLeft: "10px", marginBottom: "10px" }}>
-						<TextBox ingredient="ground chicken" />
+					<span
+						style={{
+							marginLeft: "10px",
+							marginBottom: "10px",
+							display: "flex",
+						}}
+					>
+						{ingredients.map((ingredient, index) => (
+							<TextBox
+								data={ingredient}
+								index={index}
+								deleteItem={deleteIngredientsItem}
+							/>
+						))}
 					</span>
 				</span>
 				<div style={{ display: "flex" }}>
@@ -134,17 +157,34 @@ function ProductForm() {
 							},
 						]}
 					>
-						<Input placeholder="Ingredients" />
+						<Input
+							placeholder="Ingredients"
+							onChange={(e) => setIngredient(e.target.value)}
+						/>
 					</Form.Item>
-					<Button>Add</Button>
+					<Button onClick={() => setIngredients([...ingredients, ingredient])}>
+						Add
+					</Button>
 				</div>
 			</div>
 
 			<div style={{ marginLeft: "22%" }}>
 				<span style={{ display: "flex", alignItems: "center" }}>
 					<p>Add Ons: </p>
-					<span style={{ marginLeft: "10px", marginBottom: "10px" }}>
-						<TextBox ingredient="ground chicken" />
+					<span
+						style={{
+							marginLeft: "10px",
+							marginBottom: "10px",
+							display: "flex",
+						}}
+					>
+						{addons.map((addon, index) => (
+							<TextBox
+								data={addon}
+								index={index}
+								deleteItem={deleteAddonsItem}
+							/>
+						))}
 					</span>
 				</span>
 				<div style={{ display: "flex" }}>
@@ -158,9 +198,18 @@ function ProductForm() {
 							},
 						]}
 					>
-						<Input placeholder="Add Ons" />
+						<Input
+							placeholder="Add Ons"
+							onChange={(e) => setAddon(e.target.value)}
+						/>
 					</Form.Item>
-					<Button>Add</Button>
+					<Button
+						onClick={() => {
+							setAddons([...addons, addons]);
+						}}
+					>
+						Add
+					</Button>
 				</div>
 			</div>
 
