@@ -1,5 +1,13 @@
 import { useState } from "react";
-import { useAddProducts } from "../hooks/useAddProduct";
+import AdminNavbar from "../../components/AdminNavbar";
+import { useAddProducts } from "../../hooks/useAddProduct";
+import "antd/dist/antd.css";
+import "../../styles/Admin.css";
+import { Button, Checkbox, Form, Input } from "antd";
+import TextBox from "../../components/TextBox";
+import ProductForm from "./ProductForm";
+
+const { TextArea } = Input;
 
 function Add() {
 	const [name, setName] = useState("");
@@ -33,24 +41,21 @@ function Add() {
 
 	if (error) return `Submission error! ${error.message}`;
 
+	const onSubmitFailed = () => {};
+
 	return (
-		<div style={{ display: "flex", justifyContent: "center" }}>
-			<form
-				style={{ display: "flex", flexDirection: "column", width: "300px" }}
+		<>
+			<AdminNavbar />
+			<div
+				style={{
+					display: "flex",
+					justifyContent: "center",
+					marginTop: "50px",
+				}}
 			>
-				<input placeholder="Name" onChange={(e) => setName(e.target.value)} />
-				<textarea
-					placeholder="Description"
-					onChange={(e) => setDescription(e.target.value)}
-				/>
-				<input
-					placeholder="Price"
-					onChange={(e) => setPrice(Number(e.target.value))}
-				/>
-				<input placeholder="Image" onChange={(e) => setImage(e.target.value)} />
-			</form>
-			<button onClick={onSubmit}>Submit</button>
-		</div>
+				<ProductForm />
+			</div>
+		</>
 	);
 }
 

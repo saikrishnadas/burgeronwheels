@@ -5,6 +5,7 @@ import Info from "./components/Info";
 import ProductCard from "./components/ProductCard";
 import burger2 from "./asset/burger2.png";
 import ProductCardHomepage from "./components/ProductCardHomepage";
+import { Link } from "react-router-dom";
 
 function App() {
 	const { error, loading, data } = useProducts();
@@ -41,21 +42,42 @@ function App() {
 							/>
 						</div>
 					))} */}
-					<ProductCardHomepage name={"Regular Chicken Burger"} price={3} />
-					<ProductCardHomepage name={"Chicken Whopper"} price={4.2} />
-					<ProductCardHomepage name={"Crispy Chicken Burger"} price={3.12} />
-					<ProductCardHomepage name={"Veg Whopper"} price={2.42} />
+					<ProductCardHomepage
+						name={"Regular Chicken Burger"}
+						price={3}
+						id={"251d9154-c52e-44f4-932f-5def9eb845ee"}
+					/>
+					<ProductCardHomepage
+						name={"Chicken Whopper"}
+						price={4.2}
+						id={"31b9bf81-096f-4183-9461-8149bd83ee26"}
+					/>
+					<ProductCardHomepage
+						name={"Crispy Chicken Burger"}
+						price={3.12}
+						id={"fa8ff13c-8623-46f7-8f94-3bacd0814522"}
+					/>
+					<ProductCardHomepage
+						name={"Veg Whopper"}
+						price={2.42}
+						id={"3e003843-855d-4dd3-a491-b95398ed0e90"}
+					/>
 				</div>
-				<p
-					style={{
-						textAlign: "end",
-						marginRight: "3.8%",
-						cursor: "pointer",
-						fontWeight: "bold",
-					}}
+				<Link
+					to={`/menu`}
+					style={{ color: "inherit", textDecoration: "inherit" }}
 				>
-					View More
-				</p>
+					<p
+						style={{
+							textAlign: "end",
+							marginRight: "3.8%",
+							cursor: "pointer",
+							fontWeight: "bold",
+						}}
+					>
+						View More
+					</p>
+				</Link>
 			</div>
 			<div
 				style={{

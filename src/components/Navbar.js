@@ -8,7 +8,9 @@ const Navbar = () => {
 				Burger On Wheels
 			</div>
 			<div className="nav-bar-menu">
-				<p className="nav-items">Home</p>
+				<Link to={`/`} style={{ color: "inherit", textDecoration: "inherit" }}>
+					<p className="nav-items">Home</p>
+				</Link>
 				<Link
 					to="/menu"
 					style={{ color: "inherit", textDecoration: "inherit" }}
