@@ -6,8 +6,10 @@ import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import { BrowserRouter } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
 import Menu from "./pages/Menu";
-import Add from "./pages/Add";
+import Add from "./pages/admin/Add";
 import Description from "./pages/Description";
+import AdminHomepage from "./pages/admin";
+import Update from "./pages/admin/Update";
 
 const client = new ApolloClient({
 	uri: "https://burgeronwheels-backend.herokuapp.com/",
@@ -21,7 +23,9 @@ root.render(
 			<Routes>
 				<Route path="/" element={<App />} />
 				<Route path="menu" element={<Menu />} />
-				<Route path="add" element={<Add />} />
+				<Route path="/admin" element={<AdminHomepage />} />
+				<Route path="/admin/add" element={<Add />} />
+				<Route path="/admin/update/:id" element={<Update />} />
 				<Route path="/:id" element={<Description />} />
 			</Routes>
 		</ApolloProvider>
