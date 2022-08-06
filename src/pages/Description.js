@@ -9,6 +9,7 @@ import { useGetProduct } from "../hooks/useGetProduct";
 import { useProducts } from "../hooks/useProducts";
 import { useAddProducts } from "../hooks/useAddProduct";
 import { useEffect } from "react";
+import Details from "../Details/Details";
 
 function Description() {
 	const { id } = useParams();
@@ -18,12 +19,14 @@ function Description() {
 
 	return (
 		<>
+		
 			<span style={{ height: "2vh" }}>
 				<Navbar />
 			</span>
 			{loading ? (
 				<p>Loading...</p>
 			) : (
+				<div className="parent-div">
 				<div className="product-page-container">
 					<div className="product-page-box">
 						<div
@@ -31,13 +34,15 @@ function Description() {
 								display: "flex",
 								flexDirection: "column",
 								alignItems: "center",
+								// justifyContent:"flex-start",
+								//  gap:"-10px"
 							}}
 						>
 							<div>
-								<img src={burger2} alt="" className="product-image" />
+								<img src={burger2} alt="" className="product-image" style={{margin:"0px"}} />
 							</div>
 							<div>
-								<h1 style={{ color: "#FFD93D" }}>{data.findProduct.name}</h1>
+								<h1 style={{ color: "#FFD93D",margin:"0px" }}>{data.findProduct.name}</h1>
 							</div>
 							<div>
 								<p
@@ -71,7 +76,11 @@ function Description() {
 						</div>
 					</div>
 				</div>
+				<Details></Details>
+				</div>
 			)}
+			
+			
 		</>
 	);
 }
