@@ -1,6 +1,7 @@
 import { useState } from "react";
 import AdminNavbar from "../../components/AdminNavbar";
 import { useAddProducts } from "../../hooks/useAddProduct";
+import "antd/dist/antd.css";
 import "../../styles/Admin.css";
 import { Button, Checkbox, Form, Input } from "antd";
 import TextBox from "../../components/TextBox";

@@ -8,11 +8,6 @@ const ADD_PRODUCTS = gql`
 			description
 			price
 			image
-			ingredients
-			addOns
-			rating
-			calories
-			duration
 		}
 	}
 `;
