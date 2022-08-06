@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 const { TextArea } = Input;
 function ProductForm() {
 	const [ingredient, setIngredient] = useState("");
-	const [ingredients, setIngredients] = useState(["ground chicken", "bbq"]);
+	const [ingredients, setIngredients] = useState(["ground chicken", "cheese"]);
 	const [addons, setAddons] = useState(["onion", "tomato"]);
 	const [addon, setAddon] = useState("");
 
