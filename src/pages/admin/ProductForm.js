@@ -1,13 +1,22 @@
 import { Button, Checkbox, Form, Input } from "antd";
 import TextBox from "../../components/TextBox";
+import "../../styles/Admin.css";
+import "antd/lib/form/style/index.css";
+import "antd/lib/input/style/index.css";
+import "antd/lib/input-number/style/index.css";
+import "antd/lib/layout/style/index.css";
+import "antd/lib/button/style/index.css";
 import { useState, useEffect } from "react";
+import { useAddProducts } from "../../hooks/useAddProduct";
 
 const { TextArea } = Input;
 function ProductForm() {
 	const [ingredient, setIngredient] = useState("");
 	const [ingredients, setIngredients] = useState(["ground chicken", "bbq"]);
-	const [addons, setAddons] = useState(["onion", "tomato"]);
+	const [addOns, setAddons] = useState(["onion", "tomato"]);
 	const [addon, setAddon] = useState("");
+
+	const { addProduct, error, loading, data } = useAddProducts();
 
 	const deleteIngredientsItem = (index) => {
 		const item = ingredients[index];
@@ -18,23 +27,48 @@ function ProductForm() {
 	};
 
 	const deleteAddonsItem = (index) => {
-		const item = addons[index];
-		let newAddons = addons.filter((product) => {
+		const item = addOns[index];
+		let newAddons = addOns.filter((product) => {
 			return product !== item;
 		});
 		setAddons(newAddons);
 	};
 
+	const onSubmit = (value) => {
+		console.log(value, ingredients, addOns);
+		let { name, description, image, duration } = value;
+		let price = parseFloat(value.price);
+		let rating = parseFloat(value.rating);
+		let calories = parseInt(value.calories);
+		if (name.length > 5 && description.length > 5 && image.length > 5) {
+			addProduct({
+				variables: {
+					input: {
+						name,
+						description,
+						price,
+						image,
+						rating,
+						calories,
+						duration,
+						ingredients,
+						addOns,
+					},
+				},
+			});
+		}
+	};
+
+	const onSubmitFailed = () => {};
+
+	if (loading) return "Submitting....";
+
+	if (error) return `Submission error! ${error.message}`;
+
 	return (
 		<Form
-			labelCol={{
-				span: 8,
-			}}
-			wrapperCol={{
-				span: 16,
-			}}
 			name="add-product"
-			// onFinish={onSubmit}
+			onFinish={onSubmit}
 			// onFinishFailed={onSubmitFailed}
 			autoComplete="off"
 			style={{ display: "flex", flexDirection: "column", width: "50%" }}
@@ -49,7 +83,10 @@ function ProductForm() {
 					},
 				]}
 			>
-				<Input placeholder="Name" />
+				<Input
+					style={{ borderColor: "#ffd93d", borderWidth: "2px" }}
+					placeholder="Name"
+				/>
 			</Form.Item>
 
 			<Form.Item
@@ -62,7 +99,10 @@ function ProductForm() {
 					},
 				]}
 			>
-				<TextArea placeholder="Description" />
+				<TextArea
+					style={{ borderColor: "#ffd93d", borderWidth: "2px" }}
+					placeholder="Description"
+				/>
 			</Form.Item>
 			<Form.Item
 				label="Price"
@@ -74,7 +114,10 @@ function ProductForm() {
 					},
 				]}
 			>
-				<Input placeholder="Price" />
+				<Input
+					style={{ borderColor: "#ffd93d", borderWidth: "2px" }}
+					placeholder="Price"
+				/>
 			</Form.Item>
 			<Form.Item
 				label="Image Url"
@@ -86,7 +129,10 @@ function ProductForm() {
 					},
 				]}
 			>
-				<Input placeholder="Image" />
+				<Input
+					style={{ borderColor: "#ffd93d", borderWidth: "2px" }}
+					placeholder="Image"
+				/>
 			</Form.Item>
 
 			<Form.Item
@@ -99,7 +145,10 @@ function ProductForm() {
 					},
 				]}
 			>
-				<Input placeholder="Rating" />
+				<Input
+					style={{ borderColor: "#ffd93d", borderWidth: "2px" }}
+					placeholder="Rating"
+				/>
 			</Form.Item>
 
 			<Form.Item
@@ -112,7 +161,10 @@ function ProductForm() {
 					},
 				]}
 			>
-				<Input placeholder="Calories" />
+				<Input
+					style={{ borderColor: "#ffd93d", borderWidth: "2px" }}
+					placeholder="Calories"
+				/>
 			</Form.Item>
 			<Form.Item
 				label="Duration"
@@ -124,7 +176,10 @@ function ProductForm() {
 					},
 				]}
 			>
-				<Input placeholder="Duration" />
+				<Input
+					style={{ borderColor: "#ffd93d", borderWidth: "2px" }}
+					placeholder="Duration"
+				/>
 			</Form.Item>
 
 			<div style={{ marginLeft: "22%" }}>
@@ -152,17 +207,27 @@ function ProductForm() {
 						name="ingredients"
 						rules={[
 							{
-								required: true,
+								required: false,
 								message: "Please enter the ingredients!",
 							},
 						]}
 					>
 						<Input
+							style={{ borderColor: "#ffd93d", borderWidth: "2px" }}
 							placeholder="Ingredients"
 							onChange={(e) => setIngredient(e.target.value)}
 						/>
 					</Form.Item>
-					<Button onClick={() => setIngredients([...ingredients, ingredient])}>
+					<Button
+						style={{
+							background: "#ffd93d",
+							borderColor: "yellow",
+							borderRadius: "10px",
+							fontWeight: "bold",
+							marginLeft: "20px",
+						}}
+						onClick={() => setIngredients([...ingredients, ingredient])}
+					>
 						Add
 					</Button>
 				</div>
@@ -178,7 +243,7 @@ function ProductForm() {
 							display: "flex",
 						}}
 					>
-						{addons.map((addon, index) => (
+						{addOns.map((addon, index) => (
 							<TextBox
 								data={addon}
 								index={index}
@@ -193,20 +258,26 @@ function ProductForm() {
 						name="addons"
 						rules={[
 							{
-								required: true,
+								required: false,
 								message: "Please enter the addons!",
 							},
 						]}
 					>
 						<Input
+							style={{ borderColor: "#ffd93d", borderWidth: "2px" }}
 							placeholder="Add Ons"
 							onChange={(e) => setAddon(e.target.value)}
 						/>
 					</Form.Item>
 					<Button
-						onClick={() => {
-							setAddons([...addons, addons]);
+						style={{
+							background: "#ffd93d",
+							borderColor: "yellow",
+							borderRadius: "10px",
+							fontWeight: "bold",
+							marginLeft: "20px",
 						}}
+						onClick={() => setAddons([...addOns, addon])}
 					>
 						Add
 					</Button>
@@ -215,7 +286,16 @@ function ProductForm() {
 
 			<Button
 				htmlType="submit"
-				style={{ width: "200px", marginLeft: "50%", marginBottom: "50px" }}
+				className="submit-button"
+				style={{
+					width: "200px",
+					marginLeft: "50%",
+					marginBottom: "50px",
+					background: "#ffd93d",
+					borderColor: "yellow",
+					borderRadius: "10px",
+					fontWeight: "bold",
+				}}
 			>
 				Submit
 			</Button>
