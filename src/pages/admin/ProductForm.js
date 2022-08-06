@@ -1,13 +1,16 @@
 import { Button, Checkbox, Form, Input } from "antd";
 import TextBox from "../../components/TextBox";
 import { useState, useEffect } from "react";
+import { useAddProducts } from "../../hooks/useAddProduct";
 
 const { TextArea } = Input;
 function ProductForm() {
 	const [ingredient, setIngredient] = useState("");
 	const [ingredients, setIngredients] = useState(["ground chicken", "bbq"]);
-	const [addons, setAddons] = useState(["onion", "tomato"]);
+	const [addOns, setAddons] = useState(["onion", "tomato"]);
 	const [addon, setAddon] = useState("");
+
+	const { addProduct, error, loading, data } = useAddProducts();
 
 	const deleteIngredientsItem = (index) => {
 		const item = ingredients[index];
@@ -18,12 +21,43 @@ function ProductForm() {
 	};
 
 	const deleteAddonsItem = (index) => {
-		const item = addons[index];
-		let newAddons = addons.filter((product) => {
+		const item = addOns[index];
+		let newAddons = addOns.filter((product) => {
 			return product !== item;
 		});
 		setAddons(newAddons);
 	};
+
+	const onSubmit = (value) => {
+		console.log(value, ingredients, addOns);
+		let { name, description, image, duration } = value;
+		let price = parseFloat(value.price);
+		let rating = parseFloat(value.rating);
+		let calories = parseInt(value.calories);
+		if (name.length > 5 && description.length > 5 && image.length > 5) {
+			addProduct({
+				variables: {
+					input: {
+						name,
+						description,
+						price,
+						image,
+						rating,
+						calories,
+						duration,
+						ingredients,
+						addOns,
+					},
+				},
+			});
+		}
+	};
+
+	const onSubmitFailed = () => {};
+
+	if (loading) return "Submitting....";
+
+	if (error) return `Submission error! ${error.message}`;
 
 	return (
 		<Form
@@ -34,7 +68,7 @@ function ProductForm() {
 				span: 16,
 			}}
 			name="add-product"
-			// onFinish={onSubmit}
+			onFinish={onSubmit}
 			// onFinishFailed={onSubmitFailed}
 			autoComplete="off"
 			style={{ display: "flex", flexDirection: "column", width: "50%" }}
@@ -152,7 +186,7 @@ function ProductForm() {
 						name="ingredients"
 						rules={[
 							{
-								required: true,
+								required: false,
 								message: "Please enter the ingredients!",
 							},
 						]}
@@ -178,7 +212,7 @@ function ProductForm() {
 							display: "flex",
 						}}
 					>
-						{addons.map((addon, index) => (
+						{addOns.map((addon, index) => (
 							<TextBox
 								data={addon}
 								index={index}
@@ -193,7 +227,7 @@ function ProductForm() {
 						name="addons"
 						rules={[
 							{
-								required: true,
+								required: false,
 								message: "Please enter the addons!",
 							},
 						]}
@@ -203,13 +237,7 @@ function ProductForm() {
 							onChange={(e) => setAddon(e.target.value)}
 						/>
 					</Form.Item>
-					<Button
-						onClick={() => {
-							setAddons([...addons, addons]);
-						}}
-					>
-						Add
-					</Button>
+					<Button onClick={() => setAddons([...addOns, addon])}>Add</Button>
 				</div>
 			</div>
 
