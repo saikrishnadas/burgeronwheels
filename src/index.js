@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+ import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import { BrowserRouter } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
 import Menu from "./pages/Menu";
@@ -10,11 +10,13 @@ import Add from "./pages/admin/Add";
 import Description from "./pages/Description";
 import AdminHomepage from "./pages/admin";
 import Update from "./pages/admin/Update";
+import Details from "./Details/Details";
+import CartItem from "./components/Cart Components/CartItems";
 
-const client = new ApolloClient({
-	uri: "https://burgeronwheels-backend.herokuapp.com/",
-	cache: new InMemoryCache(),
-});
+ const client = new ApolloClient({
+ 	uri: "https://burgeronwheels-backend.herokuapp.com/",
+ 	cache: new InMemoryCache(),
+ });
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -27,6 +29,8 @@ root.render(
 				<Route path="/admin/add" element={<Add />} />
 				<Route path="/admin/update/:id" element={<Update />} />
 				<Route path="/:id" element={<Description />} />
+				 <Route path="/details" element={<CartItem></CartItem>}/> 
+				 
 			</Routes>
 		</ApolloProvider>
 	</BrowserRouter>

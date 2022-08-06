@@ -1,0 +1,33 @@
+/* .main-div{
+    display: flex;
+    flex-basis: 50%;
+    width: 100%;
+    height: auto;
+
+} */
+.child-div{
+     padding-top: 50px; 
+    display: flex;
+    flex-direction: column;
+     /* flex-basis: 33%; */
+    height: 90vh; 
+    width: 50%;
+    /* justify-content: space-between; */
+    /* border: 2px solid; */
+    padding-left: 20px;
+}
+
+.addtocart-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFD93D;
+
+    border-radius: 5px;
+    height: 2em;
+    width: 100px;
+    align-self: flex-end;
+    font-weight: bold;
+    margin-right: 20%;
+    margin-top: 20px;
+}

@@ -1,22 +1,30 @@
 .product-page-container {
-	height: 100vh;
+	 height: 100vh; 
+	/* width: 50vh; */
+	/* margin-left: 100px; */
 	/* color: #000000; */
 }
 
 .product-page-box {
 	color: white;
-	width: 40%;
+	/* width: 40%; */
 	height: 100%;
 	background-color: #000000;
 	border-radius: 0px 20px 0px 0px;
 }
 
 .product-image {
-	width: 20em;
-	height: 20em;
+	width: 15em;
+	height: 15em;
 	object-fit: contain;
 }
 
 .icons {
 	object-fit: contain;
+}
+
+.parent-div{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }

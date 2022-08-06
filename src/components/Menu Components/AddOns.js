@@ -3,7 +3,7 @@ import "./addon.css";
 const AddOns = () =>{
 
     return(
-        <div><p>dsfgbhfvdmngbmndfmnbdfnmgbmndfg.fb</p></div>
+        <div><p>dont delete</p></div>
     )
 }
 

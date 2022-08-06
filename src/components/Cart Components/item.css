@@ -1,0 +1,38 @@
+.cart-item{
+    display: flex;
+      width: 100%;
+    border: 2px solid pink;
+     justify-content: center; 
+    gap:20px;
+     /* align-items: center;  */
+    margin:0;
+    flex-basis: 100%;
+
+}
+
+.item-image{
+    width: 5em;
+    height: 5em;
+    object-fit: contain;
+}
+
+.item-name{
+    color: yellow;
+    font-size: 15px;
+}
+
+.no-of-items{
+
+    color: yellow;
+    font-size: 15px;
+}
+
+.total-price{
+
+    color: yellow;
+    font-size: 15px;
+      /* justify-self: flex-end;   */
+     /* justify-items: flex-start; */
+     /* margin-left: 20%;  */
+     /* left:20%; */
+}
