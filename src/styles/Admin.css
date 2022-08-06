@@ -11,10 +11,17 @@
 }
 
 .textbox {
-	width: 139px;
+	width: 129px;
 	height: 36px;
 	background-color: #ffd93d;
 	border-radius: 10px;
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
+}
+
+.text-data {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
