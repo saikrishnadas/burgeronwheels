@@ -9,6 +9,8 @@ import { useGetProduct } from "../hooks/useGetProduct";
 import { useProducts } from "../hooks/useProducts";
 import { useAddProducts } from "../hooks/useAddProduct";
 import { useEffect } from "react";
+import Ingredients from "../components/Description/Ingredients";
+import AddOns from "../components/Description/AddOns";
 
 function Description() {
 	const { id } = useParams();
@@ -68,6 +70,19 @@ function Description() {
 									<p>5 - 10 mins</p>
 								</span>
 							</div>
+						</div>
+					</div>
+					<div className="details-container">
+						<Ingredients />
+						<AddOns />
+						<div
+							style={{
+								display: "flex",
+								justifyContent: "flex-end",
+								marginRight: "20px",
+							}}
+						>
+							<div className="add-to-cart-button">Add To Cart</div>
 						</div>
 					</div>
 				</div>

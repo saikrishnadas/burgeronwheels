@@ -6,6 +6,7 @@ import "antd/lib/input/style/index.css";
 import "antd/lib/input-number/style/index.css";
 import "antd/lib/layout/style/index.css";
 import "antd/lib/button/style/index.css";
+import "antd/lib/checkbox/style/index.css";
 import { useState, useEffect } from "react";
 import { useAddProducts } from "../../hooks/useAddProduct";
 
