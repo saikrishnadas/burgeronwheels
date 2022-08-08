@@ -59,8 +59,10 @@
 }
 
 .view-items-ingredients {
+	width: 25em;
 	display: grid;
 	grid-template-columns: auto auto auto;
+	column-gap: 20px;
 }
 
 .view-mid-line {

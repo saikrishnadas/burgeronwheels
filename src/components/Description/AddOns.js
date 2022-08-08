@@ -5,7 +5,7 @@ function AddOns({ data }) {
 		<div className="addons-container">
 			<h2>Add Ons</h2>
 			<div className="addons-list">
-				{data?.findProduct.ingredients.map((addon) => (
+				{data?.findProduct.addOns.map((addon) => (
 					<Checkbox>{addon}</Checkbox>
 				))}
 			</div>

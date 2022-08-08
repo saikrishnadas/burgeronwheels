@@ -57,12 +57,12 @@ function Description() {
 							>
 								<span style={{ display: "flex" }}>
 									<img src={star} alt="icon1" className="icons" />
-									<p>4.7</p>
+									<p>{data.findProduct.rating}</p>
 								</span>
 
 								<span style={{ display: "flex" }}>
 									<img src={fire} alt="icon2" className="icons" />
-									<p>220 Kcal</p>
+									<p>{data.findProduct.calories} Kcal</p>
 								</span>
 
 								<span style={{ display: "flex" }}>

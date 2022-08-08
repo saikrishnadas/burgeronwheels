@@ -20,7 +20,7 @@ function View() {
 export function ViewItem() {
 	const [rows, setRows] = useState(5);
 	const { error, loading, data } = useProducts();
-	console.log("data", data);
+	console.log("data from view", data);
 	return (
 		<>
 			{data?.products.map((product) => (
@@ -46,13 +46,13 @@ export function ViewItem() {
 						</div>
 						<div className="view-item-details">
 							<div className="view-items-ingredients">
-								{data?.product?.ingredients.map((ingredient) => (
+								{product?.ingredients.map((ingredient) => (
 									<span>{ingredient}</span>
 								))}
 							</div>
 							<div className="view-mid-line" />
 							<div className="view-items-ingredients">
-								{data?.product?.addOns.map((addOn) => (
+								{product?.addOns.map((addOn) => (
 									<span>{addOn}</span>
 								))}
 							</div>
