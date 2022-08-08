@@ -9,6 +9,8 @@ const GET_PRODUCTS = gql`
 			price
 			slug
 			image
+			ingredients
+			addOns
 		}
 	}
 `;
