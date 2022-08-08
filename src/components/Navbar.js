@@ -4,9 +4,11 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
 	return (
 		<nav className="nav-bar">
-			<div style={{ color: "#FFD93D" }} className="nav-items">
-				Burger On Wheels
-			</div>
+			<Link to={`/`} style={{ color: "inherit", textDecoration: "inherit" }}>
+				<div style={{ color: "#FFD93D" }} className="nav-items">
+					Burger On Wheels
+				</div>
+			</Link>
 			<div className="nav-bar-menu">
 				<Link to={`/`} style={{ color: "inherit", textDecoration: "inherit" }}>
 					<p className="nav-items">Home</p>

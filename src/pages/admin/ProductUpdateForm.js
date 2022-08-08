@@ -84,6 +84,8 @@ function ProductUpdateForm({ data, loading, error, id }) {
 			description: data?.findProduct.description,
 			price: data?.findProduct.price,
 			image: data?.findProduct.image,
+			rating: data?.findProduct?.rating,
+			calories: data?.findProduct?.calories,
 		});
 		if (data?.findProduct.ingredients) {
 			setIngredients(data.findProduct.ingredients);

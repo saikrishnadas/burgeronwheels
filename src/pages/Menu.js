@@ -2,6 +2,8 @@ import Navbar from "../components/Navbar";
 import "../styles/Menu.css";
 import ProductCard from "../components/ProductCard";
 import { useProducts } from "../hooks/useProducts";
+import "antd/lib/spin/style/index.css";
+import { Spin } from "antd";
 
 const Menu = () => {
 	const { error, loading, data } = useProducts();
@@ -14,7 +16,16 @@ const Menu = () => {
 				<p>Fresh and authentic burgers</p>
 			</div>
 			{loading ? (
-				<p>Loading....</p>
+				<div
+					style={{
+						height: "50vh",
+						display: "flex",
+						justifyContent: "center",
+						alignItems: "center",
+					}}
+				>
+					<Spin size="large" />
+				</div>
 			) : (
 				<div className="container">
 					{data?.products.map((product) => (

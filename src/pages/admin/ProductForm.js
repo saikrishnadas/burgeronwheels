@@ -13,8 +13,8 @@ import { useAddProducts } from "../../hooks/useAddProduct";
 const { TextArea } = Input;
 function ProductForm() {
 	const [ingredient, setIngredient] = useState("");
-	const [ingredients, setIngredients] = useState(["ground chicken", "bbq"]);
-	const [addOns, setAddons] = useState(["onion", "tomato"]);
+	const [ingredients, setIngredients] = useState([]);
+	const [addOns, setAddons] = useState([]);
 	const [addon, setAddon] = useState("");
 
 	const { addProduct, error, loading, data } = useAddProducts();
