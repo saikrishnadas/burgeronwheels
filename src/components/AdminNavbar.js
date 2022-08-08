@@ -5,7 +5,12 @@ import { Link } from "react-router-dom";
 const AdminNavbar = () => {
 	return (
 		<nav className="nav-bar">
-			<div className="nav-items">Burger On Wheels</div>
+			<Link
+				to={`/admin/view`}
+				style={{ color: "inherit", textDecoration: "inherit" }}
+			>
+				<div className="nav-items">Burger On Wheels</div>
+			</Link>
 			<div className="nav-bar-menu">
 				<Link
 					to={`/admin/add`}

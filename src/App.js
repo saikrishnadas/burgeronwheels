@@ -44,21 +44,33 @@ function App() {
 					))} */}
 					<ProductCardHomepage
 						name={"Regular Chicken Burger"}
+						description={
+							"If you're looking for a hearty meal, this is the burger for you. Made with all-natural chicken breast, seasoned with salt and pepper, and cooked to perfection, this burger is a must-have for anyone looking for a good meal. Pair it with our signature cole slaw and some potato chips, and you'll be in food heaven."
+						}
 						price={3}
 						id={"251d9154-c52e-44f4-932f-5def9eb845ee"}
 					/>
 					<ProductCardHomepage
 						name={"Chicken Whopper"}
+						description={
+							"Tired of the same old hamburger? Need a change? The Chicken Whopper is just what you need. Unlike a traditional hamburger, the Chicken Whopper is made with 100% ground chicken breast, a combination of red and green peppers, and a special blend of seasonings. The Chicken Whopper is made to order, and is available in single, double, or triple burger patties. The Chicken Whopper is a tasty alternative to the same old hamburger."
+						}
 						price={4.2}
 						id={"31b9bf81-096f-4183-9461-8149bd83ee26"}
 					/>
 					<ProductCardHomepage
 						name={"Crispy Chicken Burger"}
+						description={
+							"The Crispy Chicken Burger is a double-patty burger with two grilled chicken patties, melted cheese, and a creamy sauce on a toasted bun. This is a healthy option for anyone looking for a burger that doesn't contain beef. The chicken patties are cooked to perfection, and the toasted bun adds a delicious crunch. This is the perfect burger for any occasion."
+						}
 						price={3.12}
 						id={"fa8ff13c-8623-46f7-8f94-3bacd0814522"}
 					/>
 					<ProductCardHomepage
 						name={"Veg Whopper"}
+						description={
+							"The Veg Whopper is a new product in the fast food industry that is meant to appeal to the vegan community. It's made with plant-based protein, veggies, and a vegan-friendly sauce. The Veg Whopper is made in two different sizes: regular and king. The regular size is enough for one person, while the king size is enough for two people. This is a great option for those who are vegan and want to enjoy fast food."
+						}
 						price={2.42}
 						id={"3e003843-855d-4dd3-a491-b95398ed0e90"}
 					/>

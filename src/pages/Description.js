@@ -11,6 +11,8 @@ import { useAddProducts } from "../hooks/useAddProduct";
 import { useEffect } from "react";
 import Ingredients from "../components/Description/Ingredients";
 import AddOns from "../components/Description/AddOns";
+import "antd/lib/spin/style/index.css";
+import { Spin } from "antd";
 
 function Description() {
 	const { id } = useParams();
@@ -24,7 +26,16 @@ function Description() {
 				<Navbar />
 			</span>
 			{loading ? (
-				<p>Loading...</p>
+				<div
+					style={{
+						height: "50vh",
+						display: "flex",
+						justifyContent: "center",
+						alignItems: "center",
+					}}
+				>
+					<Spin size="large" />
+				</div>
 			) : (
 				<div className="product-page-container">
 					<div className="product-page-box">
@@ -43,7 +54,12 @@ function Description() {
 							</div>
 							<div>
 								<p
-									style={{ color: "rgba(255, 255, 255, 0.72)", width: "500px" }}
+									style={{
+										color: "rgba(255, 255, 255, 0.72)",
+										width: "550px",
+										paddingLeft: "20px",
+										paddingRight: "20px",
+									}}
 								>
 									{data.findProduct.description}
 								</p>
@@ -55,17 +71,23 @@ function Description() {
 									width: "80%",
 								}}
 							>
-								<span style={{ display: "flex" }}>
+								<span
+									style={{ display: "flex", gap: "10px", alignItems: "center" }}
+								>
 									<img src={star} alt="icon1" className="icons" />
 									<p>{data.findProduct.rating}</p>
 								</span>
 
-								<span style={{ display: "flex" }}>
+								<span
+									style={{ display: "flex", gap: "10px", alignItems: "center" }}
+								>
 									<img src={fire} alt="icon2" className="icons" />
 									<p>{data.findProduct.calories} Kcal</p>
 								</span>
 
-								<span style={{ display: "flex" }}>
+								<span
+									style={{ display: "flex", gap: "10px", alignItems: "center" }}
+								>
 									<img src={clock} alt="icon3" className="icons" />
 									<p>5 - 10 mins</p>
 								</span>
