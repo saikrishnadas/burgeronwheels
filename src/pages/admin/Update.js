@@ -4,39 +4,15 @@ import { useAddProducts } from "../../hooks/useAddProduct";
 import "../../styles/Admin.css";
 import { Button, Checkbox, Form, Input } from "antd";
 import TextBox from "../../components/TextBox";
-import ProductForm from "./ProductForm";
+import ProductUpdateForm from "./ProductUpdateForm";
+import { useParams } from "react-router-dom";
+import { useGetProduct } from "../../hooks/useGetProduct";
 
 const { TextArea } = Input;
 
 function Update() {
-	// const { addProduct, error, loading, data } = useAddProducts();
-
-	// const onSubmit = () => {
-	// 	if (name.length > 5 && description.length > 5 && image.length > 5) {
-	// 		addProduct({
-	// 			variables: {
-	// 				input: {
-	// 					name,
-	// 					description,
-	// 					price,
-	// 					image,
-	// 				},
-	// 			},
-	// 		}).then(() => {
-	// 			setName("");
-	// 			setDescription("");
-	// 			setPrice();
-	// 			setImage("");
-	// 		});
-	// 	}
-	// };
-
-	// if (loading) return "Submitting....";
-
-	// if (error) return `Submission error! ${error.message}`;
-
-	// const onSubmitFailed = () => {};
-
+	const { id } = useParams();
+	const { error, loading, data } = useGetProduct(id);
 	return (
 		<>
 			<AdminNavbar />
@@ -47,7 +23,12 @@ function Update() {
 					marginTop: "50px",
 				}}
 			>
-				<ProductForm />
+				<ProductUpdateForm
+					data={data}
+					loading={loading}
+					error={error}
+					id={id}
+				/>
 			</div>
 		</>
 	);

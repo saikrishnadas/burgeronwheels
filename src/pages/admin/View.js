@@ -5,6 +5,7 @@ import "antd/lib/typography/style/index.css";
 import { useState } from "react";
 import { Typography } from "antd";
 import { useProducts } from "../../hooks/useProducts";
+import { Link } from "react-router-dom";
 const { Paragraph } = Typography;
 
 function View() {
@@ -57,8 +58,13 @@ export function ViewItem() {
 							</div>
 						</div>
 						<div className="view-buttons-container">
-							<div className="view-button">View</div>
-							<div className="update-button">Update</div>
+							{/* <div className="view-button">View</div> */}
+							<Link
+								to={`/admin/update/${product.id}`}
+								style={{ color: "inherit", textDecoration: "inherit" }}
+							>
+								<div className="update-button">Update</div>
+							</Link>
 							<div className="delete-button">Delete</div>
 						</div>
 					</div>
