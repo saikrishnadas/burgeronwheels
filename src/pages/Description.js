@@ -73,8 +73,8 @@ function Description() {
 						</div>
 					</div>
 					<div className="details-container">
-						<Ingredients />
-						<AddOns />
+						<Ingredients data={data} />
+						<AddOns data={data} />
 						<div
 							style={{
 								display: "flex",

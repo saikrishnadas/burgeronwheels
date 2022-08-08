@@ -28,6 +28,12 @@
 	margin-left: 10%;
 }
 
+.ingredient-list-view {
+	display: grid;
+	grid-template-columns: auto auto;
+	column-gap: 50px;
+}
+
 .ingredients-line {
 	width: 119.12px;
 	height: 0px;
