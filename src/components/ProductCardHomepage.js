@@ -1,6 +1,6 @@
 import "../styles/ProductCard.css";
-import burger from "../asset/burger.png";
 import { Link } from "react-router-dom";
+import burger from "../asset/burger2.png";
 
 const ProductCardHomepage = ({ id, name, description, price, image }) => {
 	return (
