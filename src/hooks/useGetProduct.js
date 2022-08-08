@@ -8,6 +8,10 @@ const GET_PRODUCT = gql`
 			description
 			price
 			image
+			ingredients
+			addOns
+			rating
+			calories
 		}
 	}
 `;

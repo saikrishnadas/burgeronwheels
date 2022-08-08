@@ -8,16 +8,18 @@ import "antd/lib/layout/style/index.css";
 import "antd/lib/button/style/index.css";
 import "antd/lib/checkbox/style/index.css";
 import { useState, useEffect } from "react";
-import { useAddProducts } from "../../hooks/useAddProduct";
+import { useUpdate } from "../../hooks/useUpdate";
+import { useNavigate } from "react-router-dom";
 
 const { TextArea } = Input;
-function ProductForm() {
-	const [ingredient, setIngredient] = useState("");
-	const [ingredients, setIngredients] = useState(["ground chicken", "bbq"]);
-	const [addOns, setAddons] = useState(["onion", "tomato"]);
-	const [addon, setAddon] = useState("");
+function ProductUpdateForm({ data, loading, error, id }) {
+	let navigate = useNavigate();
+	const [form] = Form.useForm();
 
-	const { addProduct, error, loading, data } = useAddProducts();
+	const [ingredient, setIngredient] = useState("");
+	const [ingredients, setIngredients] = useState([]);
+	const [addOns, setAddons] = useState([]);
+	const [addon, setAddon] = useState("");
 
 	const deleteIngredientsItem = (index) => {
 		const item = ingredients[index];
@@ -35,6 +37,13 @@ function ProductForm() {
 		setAddons(newAddons);
 	};
 
+	const {
+		updateProduct,
+		error: updateError,
+		loading: updating,
+		data: updateData,
+	} = useUpdate();
+
 	const onSubmit = (value) => {
 		console.log(value, ingredients, addOns);
 		let { name, description, image, duration } = value;
@@ -42,9 +51,10 @@ function ProductForm() {
 		let rating = parseFloat(value.rating);
 		let calories = parseInt(value.calories);
 		if (name.length > 5 && description.length > 5 && image.length > 5) {
-			addProduct({
+			updateProduct({
 				variables: {
 					input: {
+						id,
 						name,
 						description,
 						price,
@@ -56,13 +66,36 @@ function ProductForm() {
 						addOns,
 					},
 				},
+			}).then(() => {
+				navigate(`/admin/view`);
 			});
 		}
 	};
 
+	useEffect(() => {
+		onFill();
+	}, [data]);
+
 	const onSubmitFailed = () => {};
 
-	if (loading) return "Submitting....";
+	const onFill = () => {
+		form.setFieldsValue({
+			name: data?.findProduct.name,
+			description: data?.findProduct.description,
+			price: data?.findProduct.price,
+			image: data?.findProduct.image,
+		});
+		if (data?.findProduct.ingredients) {
+			setIngredients(data.findProduct.ingredients);
+		}
+		if (data?.findProduct.addOns) {
+			setAddons(data.findProduct.addOns);
+		}
+	};
+
+	if (loading) return "loading....";
+
+	if (updating) return "submitting....";
 
 	if (error) return `Submission error! ${error.message}`;
 
@@ -70,6 +103,7 @@ function ProductForm() {
 		<Form
 			name="add-product"
 			onFinish={onSubmit}
+			form={form}
 			// onFinishFailed={onSubmitFailed}
 			autoComplete="off"
 			style={{ display: "flex", flexDirection: "column", width: "50%" }}
@@ -79,7 +113,7 @@ function ProductForm() {
 				name="name"
 				rules={[
 					{
-						required: true,
+						required: false,
 						message: "Please enter the name!",
 					},
 				]}
@@ -95,7 +129,7 @@ function ProductForm() {
 				name="description"
 				rules={[
 					{
-						required: true,
+						required: false,
 						message: "Please enter the description!",
 					},
 				]}
@@ -110,7 +144,7 @@ function ProductForm() {
 				name="price"
 				rules={[
 					{
-						required: true,
+						required: false,
 						message: "Please enter the price!",
 					},
 				]}
@@ -125,7 +159,7 @@ function ProductForm() {
 				name="image"
 				rules={[
 					{
-						required: true,
+						required: false,
 						message: "Please enter the price!",
 					},
 				]}
@@ -157,7 +191,7 @@ function ProductForm() {
 				name="calories"
 				rules={[
 					{
-						required: true,
+						required: false,
 						message: "Please enter the calories!",
 					},
 				]}
@@ -172,7 +206,7 @@ function ProductForm() {
 				name="duration"
 				rules={[
 					{
-						required: true,
+						required: false,
 						message: "Please enter the duration!",
 					},
 				]}
@@ -298,10 +332,10 @@ function ProductForm() {
 					fontWeight: "bold",
 				}}
 			>
-				Submit
+				Update
 			</Button>
 		</Form>
 	);
 }
 
-export default ProductForm;
+export default ProductUpdateForm;

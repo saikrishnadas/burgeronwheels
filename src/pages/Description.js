@@ -9,6 +9,8 @@ import { useGetProduct } from "../hooks/useGetProduct";
 import { useProducts } from "../hooks/useProducts";
 import { useAddProducts } from "../hooks/useAddProduct";
 import { useEffect } from "react";
+import Ingredients from "../components/Description/Ingredients";
+import AddOns from "../components/Description/AddOns";
 
 function Description() {
 	const { id } = useParams();
@@ -55,12 +57,12 @@ function Description() {
 							>
 								<span style={{ display: "flex" }}>
 									<img src={star} alt="icon1" className="icons" />
-									<p>4.7</p>
+									<p>{data.findProduct.rating}</p>
 								</span>
 
 								<span style={{ display: "flex" }}>
 									<img src={fire} alt="icon2" className="icons" />
-									<p>220 Kcal</p>
+									<p>{data.findProduct.calories} Kcal</p>
 								</span>
 
 								<span style={{ display: "flex" }}>
@@ -68,6 +70,19 @@ function Description() {
 									<p>5 - 10 mins</p>
 								</span>
 							</div>
+						</div>
+					</div>
+					<div className="details-container">
+						<Ingredients data={data} />
+						<AddOns data={data} />
+						<div
+							style={{
+								display: "flex",
+								justifyContent: "flex-end",
+								marginRight: "20px",
+							}}
+						>
+							<div className="add-to-cart-button">Add To Cart</div>
 						</div>
 					</div>
 				</div>
