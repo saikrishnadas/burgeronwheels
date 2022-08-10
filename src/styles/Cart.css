@@ -1,0 +1,60 @@
+.cart-page-container {
+	display: flex;
+	justify-content: space-between;
+}
+
+.cart-page-box {
+	color: white;
+	width: 41.5%;
+	height: 100vh;
+	background-color: #000000;
+	border-radius: 0px 20px 0px 0px;
+}
+
+.cart-price-container {
+	margin-top: 50px;
+	display: flex;
+	width: 50%;
+	flex-direction: column;
+}
+
+.subtotal {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	width: 80%;
+}
+
+.s-line {
+	height: 1px;
+	flex-grow: 1;
+	background-color: black;
+}
+
+.pay-button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 80px;
+	height: 2.5em;
+	background-color: #ffd93d;
+	border-radius: 5px;
+	align-self: flex-end;
+	justify-self: flex-end;
+	margin-right: 100px;
+	margin-top: 50px;
+	font-weight: bold;
+}
+
+.cart-item {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	color: #ffd93d;
+	font-weight: bold;
+}
+
+.cart-item-image {
+	width: 100px;
+	height: 100px;
+}

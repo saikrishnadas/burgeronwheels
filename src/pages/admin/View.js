@@ -6,6 +6,7 @@ import { useState } from "react";
 import { Typography } from "antd";
 import { useProducts } from "../../hooks/useProducts";
 import { Link } from "react-router-dom";
+import { useDelete } from "../../hooks/useDelete";
 const { Paragraph } = Typography;
 
 function View() {
@@ -21,6 +22,22 @@ export function ViewItem() {
 	const [rows, setRows] = useState(5);
 	const { error, loading, data } = useProducts();
 	console.log("data from view", data);
+
+	const {
+		removeProduct,
+		error: deleteError,
+		loading: deleting,
+		data: deleted,
+	} = useDelete();
+
+	const deleteItem = (id) => {
+		removeProduct({
+			variables: {
+				id,
+			},
+		});
+	};
+
 	return (
 		<>
 			{data?.products.map((product) => (
@@ -65,7 +82,12 @@ export function ViewItem() {
 							>
 								<div className="update-button">Update</div>
 							</Link>
-							<div className="delete-button">Delete</div>
+							<div
+								className="delete-button"
+								onClick={() => deleteItem(product.id)}
+							>
+								Delete
+							</div>
 						</div>
 					</div>
 					<div style={{ display: "flex", alignItems: "center", gap: "20px" }}>

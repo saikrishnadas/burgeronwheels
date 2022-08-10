@@ -11,6 +11,7 @@ import Description from "./pages/Description";
 import AdminHomepage from "./pages/admin";
 import Update from "./pages/admin/Update";
 import View from "./pages/admin/View";
+import Cart from "./pages/Cart";
 
 const client = new ApolloClient({
 	uri: "https://burgeronwheels-backend.herokuapp.com/",
@@ -29,6 +30,7 @@ root.render(
 				<Route path="/admin/view" element={<View />} />
 				<Route path="/admin/update/:id" element={<Update />} />
 				<Route path="/:id" element={<Description />} />
+				<Route path="/cart" element={<Cart />} />
 			</Routes>
 		</ApolloProvider>
 	</BrowserRouter>
