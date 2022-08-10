@@ -3,6 +3,7 @@ import "../styles/Cart.css";
 import burger2 from "../asset/burger2.png";
 import { PlusCircleFilled, MinusCircleFilled } from "@ant-design/icons";
 import { useState, useEffect } from "react";
+import { message } from "antd";
 
 function Cart() {
 	const [items, setItems] = useState(
@@ -15,6 +16,64 @@ function Cart() {
 	const [packing, setPacking] = useState(0);
 
 	console.log("items", items);
+
+	const incrementItem = (product) => {
+		let item = {
+			id: product.id,
+			name: product.name,
+			price: product.price,
+			addons: product.addons,
+			totalPrice: product.price,
+			count: product.count,
+		};
+		if (JSON.parse(localStorage.getItem("items")) === null)
+			localStorage.setItem("items", JSON.stringify([]));
+		let items = JSON.parse(localStorage.getItem("items"));
+		console.log("items logging", items);
+		const foundItem = items.filter((el) => el.id === product.id);
+		console.log("foundItem count", foundItem);
+		const updateData = {
+			count: foundItem[0].count + 1,
+			totalPrice: foundItem[0].totalPrice + product.price,
+		};
+		const newCart = [
+			...items.filter((el) => el.id !== product.id),
+			{ ...item, ...updateData },
+		];
+		console.log("newItems", newCart);
+		localStorage.setItem("items", JSON.stringify(newCart));
+		message.success("Item added to cart!");
+		setItems(JSON.parse(localStorage.getItem("items")));
+	};
+
+	const decrementItem = (product) => {
+		let item = {
+			id: product.id,
+			name: product.name,
+			price: product.price,
+			addons: product.addons,
+			totalPrice: product.price,
+			count: product.count,
+		};
+		if (JSON.parse(localStorage.getItem("items")) === null)
+			localStorage.setItem("items", JSON.stringify([]));
+		let items = JSON.parse(localStorage.getItem("items"));
+		console.log("items logging", items);
+		const foundItem = items.filter((el) => el.id === product.id);
+		console.log("foundItem count", foundItem);
+		const updateData = {
+			count: foundItem[0].count - 1,
+			totalPrice: foundItem[0].totalPrice - product.price,
+		};
+		const newCart = [
+			...items.filter((el) => el.id !== product.id),
+			{ ...item, ...updateData },
+		];
+		console.log("newItems", newCart);
+		localStorage.setItem("items", JSON.stringify(newCart));
+		message.success("Item added to cart!");
+		setItems(JSON.parse(localStorage.getItem("items")));
+	};
 
 	const calculateTotal = () => {
 		let totalValue = 0;
@@ -45,8 +104,8 @@ function Cart() {
 			{items && items.length > 0 ? (
 				<div className="cart-page-container">
 					<div className="cart-page-box">
-						{items.map((item) => (
-							<div className="cart-item">
+						{items.map((item, index) => (
+							<div className="cart-item" key={index}>
 								<div className="cart-item-image-container">
 									<img src={burger2} alt="item" className="cart-item-image" />
 								</div>
@@ -56,9 +115,15 @@ function Cart() {
 								<div
 									style={{ display: "flex", alignItems: "center", gap: "10px" }}
 								>
-									<MinusCircleFilled style={{ cursor: "pointer" }} />
+									<MinusCircleFilled
+										style={{ cursor: "pointer" }}
+										onClick={() => decrementItem(item)}
+									/>
 									<p>x{item.count}</p>
-									<PlusCircleFilled style={{ cursor: "pointer" }} />
+									<PlusCircleFilled
+										style={{ cursor: "pointer" }}
+										onClick={() => incrementItem(item)}
+									/>
 								</div>
 								<div>
 									<p>
