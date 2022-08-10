@@ -25,13 +25,15 @@ function Description() {
 			name: data.findProduct.name,
 			price: data.findProduct.price,
 			addons: addons,
+			totalPrice: data.findProduct.price,
+			count: 1,
 		};
 		let items = JSON.parse(localStorage.getItem("items"));
 		items.push(item);
 		localStorage.setItem("items", JSON.stringify(items));
 		message.success("Item added to cart!");
 		setTimeout(function () {
-			navigate(`/menu`);
+			navigate(`/cart`);
 		}, 2000);
 	};
 
