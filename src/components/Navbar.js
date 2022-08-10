@@ -26,9 +26,14 @@ const Navbar = () => {
 				<div className="cart-button" style={{ marginRight: "20px" }}>
 					<p style={{ textAlign: "center" }}>Login</p>
 				</div>
-				<div className="cart-button">
-					<p style={{ textAlign: "center" }}>Cart</p>
-				</div>
+				<Link
+					to={`/cart`}
+					style={{ color: "inherit", textDecoration: "inherit" }}
+				>
+					<div className="cart-button">
+						<p style={{ textAlign: "center" }}>Cart</p>
+					</div>
+				</Link>
 			</div>
 		</nav>
 	);
