@@ -28,9 +28,28 @@ function Description() {
 			totalPrice: data.findProduct.price,
 			count: 1,
 		};
+		if (JSON.parse(localStorage.getItem("items")) === null)
+			localStorage.setItem("items", JSON.stringify([]));
 		let items = JSON.parse(localStorage.getItem("items"));
-		items.push(item);
-		localStorage.setItem("items", JSON.stringify(items));
+		const found = items.some((el) => el.id === item.id);
+		if (!found) {
+			items.push(item);
+			localStorage.setItem("items", JSON.stringify(items));
+		} else {
+			console.log("items logging", items);
+			const foundItem = items.filter((el) => el.id === item.id);
+			console.log("foundItem count", foundItem);
+			const updateData = {
+				count: foundItem[0].count + 1,
+				totalPrice: foundItem[0].totalPrice + item.price,
+			};
+			const newCart = [
+				...items.filter((el) => el.id !== item.id),
+				{ ...item, ...updateData },
+			];
+			console.log("newItems", newCart);
+			localStorage.setItem("items", JSON.stringify(newCart));
+		}
 		message.success("Item added to cart!");
 		setTimeout(function () {
 			navigate(`/cart`);

@@ -18,8 +18,6 @@ const client = new ApolloClient({
 	cache: new InMemoryCache(),
 });
 
-localStorage.setItem("items", JSON.stringify([]));
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<BrowserRouter>

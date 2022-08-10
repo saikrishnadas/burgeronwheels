@@ -2,7 +2,7 @@ import Navbar from "../components/Navbar";
 import "../styles/Cart.css";
 import burger2 from "../asset/burger2.png";
 import { PlusCircleFilled, MinusCircleFilled } from "@ant-design/icons";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function Cart() {
 	const [items, setItems] = useState(
@@ -10,8 +10,32 @@ function Cart() {
 			? JSON.parse(localStorage.getItem("items"))
 			: []
 	);
+	const [total, setTotal] = useState(0);
+	const [delivery, setDelivery] = useState(0);
+	const [packing, setPacking] = useState(0);
 
 	console.log("items", items);
+
+	const calculateTotal = () => {
+		let totalValue = 0;
+		if (items.length > 0) {
+			items.map((item) => {
+				totalValue = item.totalPrice + totalValue;
+			});
+			setDelivery(5);
+			setPacking(2);
+		}
+		totalValue = Math.round((totalValue + Number.EPSILON) * 100) / 100;
+		setTotal(totalValue);
+	};
+
+	useEffect(() => {
+		calculateTotal();
+	}, [items]);
+
+	const test = () => {
+		console.log("total", Math.round((total + Number.EPSILON) * 100) / 100);
+	};
 
 	return (
 		<>
@@ -37,7 +61,10 @@ function Cart() {
 									<PlusCircleFilled style={{ cursor: "pointer" }} />
 								</div>
 								<div>
-									<p>${item.totalPrice}</p>
+									<p>
+										$
+										{Math.round((item.totalPrice + Number.EPSILON) * 100) / 100}
+									</p>
 								</div>
 							</div>
 						))}
@@ -48,17 +75,17 @@ function Cart() {
 						<div className="subtotal">
 							<p>Subtotal</p>
 							<div className="s-line"></div>
-							<div>$32</div>
+							<div>${total}</div>
 						</div>
 						<div className="subtotal">
 							<p>Estimated Delivery Charges</p>
 							<div className="s-line"></div>
-							<div>$32</div>
+							<div>$5</div>
 						</div>
 						<div className="subtotal">
 							<p>Packing Charges</p>
 							<div className="s-line"></div>
-							<div>$32</div>
+							<div>$2</div>
 						</div>
 						<div
 							className="subtotal"
@@ -66,9 +93,16 @@ function Cart() {
 						>
 							<p>Total</p>
 							<div className="s-line"></div>
-							<div>$32</div>
+							<div>
+								$
+								{Math.round(
+									(total + delivery + packing + Number.EPSILON) * 100
+								) / 100}
+							</div>
 						</div>
-						<div className="pay-button">Pay</div>
+						<div className="pay-button" onClick={test}>
+							Pay
+						</div>
 					</div>
 				</div>
 			) : (
