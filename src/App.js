@@ -6,6 +6,7 @@ import ProductCard from "./components/ProductCard";
 import burger2 from "./asset/burger2.png";
 import ProductCardHomepage from "./components/ProductCardHomepage";
 import { Link } from "react-router-dom";
+import NavbarMobile from "./components/NavbarMobile";
 
 function App() {
 	const { error, loading, data } = useProducts();
@@ -14,6 +15,7 @@ function App() {
 	return (
 		<div>
 			<Navbar />
+			<NavbarMobile />
 			<div className="black-box" />
 
 			<div style={{ display: "flex", justifyContent: "space-around" }}>
@@ -27,8 +29,10 @@ function App() {
 				/>
 			</div>
 			<div className="headings">
-				<h1>Treat Yourself</h1>
-				<p>Get something good for yourself and your loved one</p>
+				<h1 className="heading-tag">Treat Yourself</h1>
+				<p className="heading-para">
+					Get something good for yourself and your loved one
+				</p>
 			</div>
 			<div>
 				<div className="products-container">
@@ -74,31 +78,21 @@ function App() {
 						price={2.42}
 						id={"3e003843-855d-4dd3-a491-b95398ed0e90"}
 					/>
+					<Link
+						to={`/menu`}
+						style={{ color: "inherit", textDecoration: "inherit" }}
+					>
+						<div className="view-more-mobile">View More</div>
+					</Link>
 				</div>
 				<Link
 					to={`/menu`}
 					style={{ color: "inherit", textDecoration: "inherit" }}
 				>
-					<p
-						style={{
-							textAlign: "end",
-							marginRight: "3.8%",
-							cursor: "pointer",
-							fontWeight: "bold",
-						}}
-					>
-						View More
-					</p>
+					<p className="view-more">View More</p>
 				</Link>
 			</div>
-			<div
-				style={{
-					display: "flex",
-					justifyContent: "space-between",
-					paddingLeft: "20px",
-					paddingBottom: "50px",
-				}}
-			>
+			<div className="about-us-container">
 				<Info
 					title="If One is to eat everyone Should Eat"
 					description="Food with love only from natural and fresh products. Tastier only with us. Try out today."

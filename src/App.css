@@ -51,6 +51,13 @@ body {
 	margin-top: 30%;
 } */
 
+.about-us-container {
+	display: flex;
+	justify-content: space-between;
+	padding-left: 20px;
+	padding-right: 50px;
+}
+
 .footer-box {
 	display: flex;
 	justify-content: center;
@@ -59,4 +66,64 @@ body {
 	height: 420px;
 	background: #000000;
 	border-radius: 20px 0px 0px 20px;
+}
+
+.view-more {
+	text-align: end;
+	margin-right: 3.8%;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+.view-more-mobile {
+	margin-top: 10%;
+	font-size: 45px;
+	font-weight: bold;
+	color: #ffd93d;
+	padding-bottom: 10%;
+	cursor: pointer;
+	user-select: none;
+}
+
+/* Mobile view */
+@media screen and (max-width: 480px) {
+	.black-box {
+		width: 100vh;
+		height: 350px;
+		border-radius: 0px 0px 0px 0px;
+	}
+
+	.truck-image {
+		left: 20px;
+		top: 80px;
+	}
+
+	.headings {
+		width: 100vh;
+		text-align: center;
+		margin-top: 15%;
+	}
+
+	.heading-tag {
+		font-size: 60px;
+	}
+	.heading-para {
+		font-size: 30px;
+	}
+
+	.products-container {
+		width: 100vh;
+		padding-top: 5%;
+		display: grid;
+		grid-template-columns: auto auto;
+		row-gap: 15%;
+	}
+
+	.about-us-container {
+		display: none;
+	}
+
+	.view-more {
+		display: none;
+	}
 }

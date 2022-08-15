@@ -22,7 +22,7 @@ const Navbar = () => {
 
 				<p className="nav-items">Contact Us</p>
 			</div>
-			<div style={{ display: "flex" }}>
+			<div style={{ display: "flex" }} className="button-container">
 				<div className="cart-button" style={{ marginRight: "20px" }}>
 					<p style={{ textAlign: "center" }}>Login</p>
 				</div>
