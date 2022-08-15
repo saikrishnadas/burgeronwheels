@@ -92,15 +92,8 @@ function Description() {
 							<div>
 								<h1 style={{ color: "#FFD93D" }}>{data.findProduct.name}</h1>
 							</div>
-							<div>
-								<p
-									style={{
-										color: "rgba(255, 255, 255, 0.72)",
-										width: "550px",
-										paddingLeft: "20px",
-										paddingRight: "20px",
-									}}
-								>
+							<div className="description-product-container">
+								<p className="description-product">
 									{data.findProduct.description}
 								</p>
 							</div>

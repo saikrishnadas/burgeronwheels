@@ -101,3 +101,47 @@
 	height: 24px; */
 	font-size: 24px;
 }
+
+.description-product {
+	color: rgba(255, 255, 255, 0.72);
+	width: 550px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+/* Mobile view */
+@media screen and (max-width: 480px) {
+	.product-page-container {
+		height: 100vh;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.product-page-box {
+		width: 100vw;
+		height: 60%;
+		border-radius: 0px 0px 0px 0px;
+	}
+
+	.product-image {
+		width: 10em;
+		height: 10em;
+		object-fit: contain;
+	}
+
+	.description-product-container {
+		display: none;
+	}
+
+	.ingredients-container {
+		margin-left: 2%;
+	}
+
+	.addons-container {
+		margin-left: 2%;
+	}
+
+	.add-to-cart-button {
+		margin-bottom: 5%;
+	}
+}
