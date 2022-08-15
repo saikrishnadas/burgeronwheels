@@ -55,7 +55,7 @@ body {
 	display: flex;
 	justify-content: space-between;
 	padding-left: 20px;
-	padding-right: 50px;
+	/* padding-right: 50px; */
 }
 
 .footer-box {
@@ -124,6 +124,13 @@ body {
 	}
 
 	.view-more {
+		display: none;
+	}
+}
+
+/* Desktop view */
+@media screen and (min-width: 480px) {
+	.view-more-mobile {
 		display: none;
 	}
 }
