@@ -4,6 +4,8 @@ import burger2 from "../asset/burger2.png";
 import { PlusCircleFilled, MinusCircleFilled } from "@ant-design/icons";
 import { useState, useEffect } from "react";
 import { message } from "antd";
+import { ArrowLeftOutlined, HomeTwoTone } from "@ant-design/icons";
+import { Link } from "react-router-dom";
 
 function Cart() {
 	const [items, setItems] = useState(
@@ -103,13 +105,30 @@ function Cart() {
 			</span>
 			{items && items.length > 0 ? (
 				<div className="cart-page-container">
+					<div className="description-mobile">
+						<Link
+							to={`/menu`}
+							style={{ color: "inherit", textDecoration: "inherit" }}
+						>
+							<ArrowLeftOutlined style={{ fontSize: "20px" }} />
+						</Link>
+						<Link
+							to={`/`}
+							style={{ color: "inherit", textDecoration: "inherit" }}
+						>
+							<HomeTwoTone
+								twoToneColor="#FFD93D"
+								style={{ fontSize: "20px" }}
+							/>
+						</Link>
+					</div>
 					<div className="cart-page-box">
 						{items.map((item, index) => (
 							<div className="cart-item" key={index}>
 								<div className="cart-item-image-container">
 									<img src={burger2} alt="item" className="cart-item-image" />
 								</div>
-								<div>
+								<div className="cart-item-title">
 									<p>{item.name}</p>
 								</div>
 								<div
@@ -119,13 +138,13 @@ function Cart() {
 										style={{ cursor: "pointer" }}
 										onClick={() => decrementItem(item)}
 									/>
-									<p>x{item.count}</p>
+									<p className="cart-item-price-x">x{item.count}</p>
 									<PlusCircleFilled
 										style={{ cursor: "pointer" }}
 										onClick={() => incrementItem(item)}
 									/>
 								</div>
-								<div>
+								<div className="cart-item-price">
 									<p>
 										$
 										{Math.round((item.totalPrice + Number.EPSILON) * 100) / 100}

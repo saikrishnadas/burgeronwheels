@@ -109,6 +109,24 @@
 	padding-right: 20px;
 }
 
+.description-mobile {
+	display: flex;
+	background-color: #000000;
+	color: white;
+	justify-content: space-between;
+	padding-left: 20px;
+	padding-right: 20px;
+	height: 8vh;
+	align-items: center;
+}
+
+/* Desktop view */
+@media screen and (min-width: 480px) {
+	.description-mobile {
+		display: none;
+	}
+}
+
 /* Mobile view */
 @media screen and (max-width: 480px) {
 	.product-page-container {

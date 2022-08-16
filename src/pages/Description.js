@@ -4,7 +4,7 @@ import burger2 from "../asset/burger2.png";
 import clock from "../asset/clock.png";
 import fire from "../asset/fire.png";
 import star from "../asset/star.png";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useGetProduct } from "../hooks/useGetProduct";
 import { useProducts } from "../hooks/useProducts";
 import { useAddProducts } from "../hooks/useAddProduct";
@@ -12,6 +12,7 @@ import { useState } from "react";
 import "antd/lib/spin/style/index.css";
 import "antd/lib/message/style/index.css";
 import { Spin, Checkbox, message } from "antd";
+import { ArrowLeftOutlined, ShoppingTwoTone } from "@ant-design/icons";
 
 function Description() {
 	const navigate = useNavigate();
@@ -78,6 +79,23 @@ function Description() {
 				</div>
 			) : (
 				<div className="product-page-container">
+					<div className="description-mobile">
+						<Link
+							to={`/`}
+							style={{ color: "inherit", textDecoration: "inherit" }}
+						>
+							<ArrowLeftOutlined style={{ fontSize: "20px" }} />
+						</Link>
+						<Link
+							to={`/cart`}
+							style={{ color: "inherit", textDecoration: "inherit" }}
+						>
+							<ShoppingTwoTone
+								twoToneColor="#FFD93D"
+								style={{ fontSize: "20px" }}
+							/>
+						</Link>
+					</div>
 					<div className="product-page-box">
 						<div
 							style={{
@@ -90,7 +108,9 @@ function Description() {
 								<img src={burger2} alt="" className="product-image" />
 							</div>
 							<div>
-								<h1 style={{ color: "#FFD93D" }}>{data.findProduct.name}</h1>
+								<h1 style={{ color: "#FFD93D", marginLeft: "4px" }}>
+									{data.findProduct.name}
+								</h1>
 							</div>
 							<div className="description-product-container">
 								<p className="description-product">
