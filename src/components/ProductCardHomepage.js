@@ -32,7 +32,7 @@ const ProductCardHomepage = ({ id, name, description, price, image }) => {
 				</Paragraph>
 			</div>
 			<div className="product-card-footer">
-				<div style={{ fontWeight: "bold", color: "#16c313" }}>${price}</div>
+				<div className="product-price">${price}</div>
 				<Link
 					to={`/${id}`}
 					style={{ color: "inherit", textDecoration: "inherit" }}

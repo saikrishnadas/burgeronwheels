@@ -4,13 +4,15 @@ import ProductCard from "../components/ProductCard";
 import { useProducts } from "../hooks/useProducts";
 import "antd/lib/spin/style/index.css";
 import { Spin } from "antd";
+import NavbarMobile from "../components/NavbarMobile";
 
 const Menu = () => {
 	const { error, loading, data } = useProducts();
 	console.log("data", data);
 	return (
 		<div>
-			<Navbar></Navbar>
+			<Navbar />
+			<NavbarMobile />
 			<div className="section">
 				<h1>Taste The Best</h1>
 				<p>Fresh and authentic burgers</p>
