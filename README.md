@@ -9,7 +9,7 @@
 This application allows the vendors to add food items using a admin panel and the user can buy their 
 favourite food from the selected vendor. This application is highly customizable for the admin.
 
-![App Screenshot](https://github.com/saikrishnadas/burgeronwheels/blob/main/public/mockup6svg)
+![App Screenshot](https://github.com/saikrishnadas/burgeronwheels/blob/main/public/mockup6.svg)
 
 ## Live Demo
 
