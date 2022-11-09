@@ -36,10 +36,6 @@ https://calm-heliotrope-536826.netlify.app/
 This web application is SEO optimized and has a full score of 100 from lighthouse report.
 Most of the data is cached and optimized to run on different devices and to be super fast in retriving data and minimal navigation load.
 
-**Lighthouse Audits:**
-
-![Report](https://github.com/saikrishnadas/finance-tracker/blob/main/public/lighthouse.png)
-
 ## Support
 
 For support, email saikrishnadas666@gmail.com or message me in Linkedin.
