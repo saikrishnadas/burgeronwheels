@@ -3,13 +3,13 @@
 [![Version](https://img.shields.io/badge/version-1.0.0-green)](https://github.com/saikrishnadas/burgeronwheels)
 [![Live App](https://img.shields.io/badge/demo-online-green)](https://calm-heliotrope-536826.netlify.app/)
 
-![Logo](https://github.com/saikrishnadas/finance-tracker/blob/main/public/Group%2012.png)
+![Logo](https://github.com/saikrishnadas/burgeronwheels/blob/main/public/newlogo.png)
 
 **Burger On Wheels** is a E-commerce web application to order and track your favourite food.
 This application allows the vendors to add food items using a admin panel and the user can buy their 
 favourite food from the selected vendor. This application is highly customizable for the admin.
 
-![App Screenshot](https://github.com/saikrishnadas/finance-tracker/blob/main/public/mockup3.jpg)
+![App Screenshot](https://github.com/saikrishnadas/burgeronwheels/blob/main/public/mockup4.png)
 
 ## Live Demo
 
