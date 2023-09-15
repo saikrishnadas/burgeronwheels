@@ -14,7 +14,7 @@ import View from "./pages/admin/View";
 import Cart from "./pages/Cart";
 
 const client = new ApolloClient({
-	uri: "https://burgeronwheels-backend.herokuapp.com/",
+	uri: "https://burgeronwheels-server.onrender.com/",
 	cache: new InMemoryCache(),
 });
 
